@@ -1,0 +1,52 @@
+{{-- <!doctype html>
+<html lamg="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width,user-scalable=no, initial-scale=1.0,
+        maximum-scale=1.0,minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>つぶやきアプリ</title>
+</head>
+
+<body>
+  <h1>つぶやきアプリ</h1>
+  <div>
+    <p>投稿フォーム</p>
+    @if (session('feedback.success'))
+    <p style="color: green">{{  session('feedback.success') }}</p>  
+    @endif
+
+    <form action="{{ route('tweet.store') }}" method="post">
+      @csrf
+      <label for="tweet-content">つぶやき</label>
+      <span>140字まで</span>
+      <textarea id="tweet-content" type="text" name="tweet"
+      placeholder="つぶやきを入力"></textarea>
+      @error('tweet')
+        <p style="color: red;">{{ $message }}</p>
+      @enderror
+      <button type="submit">投稿</button>
+    </form>
+  </div>
+
+  <div>
+    @foreach ($tweets as $tweet)
+      {{-- <p>{{ $tweet->id }} : {{ $tweet->content }}</p>
+      <hr> --}}
+      <details>
+        <summary>{{ $tweet->content }}</summary>
+        <div>
+          <a href="{{ route('tweet.edit',['tweetId' => $tweet->id]) }}">編集</a>
+          <form action="{{ route('tweet.destroy', ['tweetId' => $tweet->id]) }}" method="post">
+            @method('DELETE')
+            @csrf
+            <button type="submit">削除</button>
+          </form>
+        </div>
+      </details>
+    @endforeach
+  </div>
+  
+</body>
+</html> --}}
